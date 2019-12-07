@@ -3,8 +3,6 @@ import { StyleSheet, Text, View, Button, TextInput, ScrollView ,Dimensions,SafeA
 import axios from "axios";
 import Constants from 'expo-constants';
 const { height } = Dimensions.get("screen");
-let windowH = Dimensions.get('window').height;
-let bottomNavBarH = height - windowH;
 export default class Dashboard extends Component {
   constructor() {
     super();
@@ -16,7 +14,6 @@ export default class Dashboard extends Component {
       }
     };
     this.handlesubmit = this.handlesubmit.bind(this);
-    // this.handledelete = this.handledelete.bind(this);
   }
   async componentDidMount() {
     this.refreshList();
@@ -36,7 +33,7 @@ export default class Dashboard extends Component {
   };
   handlesubmit() {
   
-    // console.log(this.state.addtask.content);
+    
     const addtodo = {
       title: this.state.addtask.title,
       content: this.state.addtask.content
@@ -70,15 +67,7 @@ export default class Dashboard extends Component {
         console.log(error);
       });
   }
-  //  renderitems(){
-  //    return  todoItems.map(item=>{
-  //     <View style={{ flexDirection: 'row',alignItems:'center',justifyContent:"center"}}>
-  //     <View style={{width: "50%", height: 50,  alignItems:'center',justifyContent:"center"}} ><Text>{item.title}</Text></View>
-  //     <View style={{width: "20%", height: 50, alignItems:'center',justifyContent:"center"}} ><Button title="edit"/></View>
-  //     <View style={{width: "20%", height: 50,alignItems:'center',justifyContent:"center"}} ><Button title="delete"/></View>
-  //   </View>
-  //    })
-  //  }
+  
   render() {
     return (
       <View style={{flex:1,marginTop:Constants.statusBarHeight+25}}>
@@ -147,28 +136,7 @@ export default class Dashboard extends Component {
     );
   }
 }
-const todoItems = [
-  {
-    id: 1,
-    title: "Go to Market",
-    content: "Buy ingredients to prepare dinner"
-  },
-  {
-    id: 2,
-    title: "Study",
-    content: "Read Algebra and History textbook for upcoming test"
-  },
-  {
-    id: 3,
-    title: "Sally's books",
-    content: "Go to library to rent sally's books"
-  },
-  {
-    id: 4,
-    title: "Article",
-    content: "Write article on how to use django with react"
-  }
-];
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
