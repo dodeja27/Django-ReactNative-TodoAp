@@ -6,5 +6,6 @@ class TodoSerializer(serializers.ModelSerializer):
             'id',
             'title',
             'content',
+            'date',
         )
         model = models.Todo
